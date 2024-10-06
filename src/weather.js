@@ -7,7 +7,7 @@ export default function Weather() {
   let [description, setDescription] = useState(null);
   let [humidity, setHumidity] = useState(null);
   let [wind, setWind] = useState(null);
-  let [icon, setIcon] = useState(null);
+  //let [icon, setIcon] = useState(null);
 
   function updateTemperature() {
     function handleResponse(response) {
@@ -18,7 +18,7 @@ export default function Weather() {
       setDescription(`Description: ${response.data.current.condition.text}`);
       setHumidity(`Humidity: ${Math.round(response.data.current.humidity)}%`);
       setWind(`Wind: ${response.data.current.wind_kph} km/h`);
-      setIcon(response.data.current.condition.icon);
+      //setIcon(response.data.current.condition.icon);
     }
     let Url = `https://api.weatherapi.com/v1/current.json?key=5ee98ea659694b6cb05174027242609&q=${city}&aqi=no
   `;
@@ -44,7 +44,6 @@ export default function Weather() {
       <h4>{description}</h4>
       <h4>{humidity}</h4>
       <h4>{wind}</h4>
-      <img src={icon} />
     </div>
   );
 }
